@@ -3,11 +3,10 @@
 #include <iostream>
 
 int safeCracker(std::ifstream& inputFile){
-    int ans = 0, dialCurrent = 50, temp = 0;
+    int ans = 0, dialCurrent = 50;
     std::string line;
     while (std::getline(inputFile, line)){
         if (line[0] == 'R'){
-            temp = dialCurrent;
             dialCurrent = ((dialCurrent + std::stoi(line.substr(1)) % 100)+100) % 100;
              if (dialCurrent == 0){
                 ans++;
